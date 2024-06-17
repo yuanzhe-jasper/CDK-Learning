@@ -8,6 +8,84 @@
         "id": "DataStack",
         "path": "DataStack",
         "children": {
+          "SpacesTable": {
+            "id": "SpacesTable",
+            "path": "DataStack/SpacesTable",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "DataStack/SpacesTable/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::DynamoDB::Table",
+                  "aws:cdk:cloudformation:props": {
+                    "attributeDefinitions": [
+                      {
+                        "attributeName": "id",
+                        "attributeType": "S"
+                      }
+                    ],
+                    "keySchema": [
+                      {
+                        "attributeName": "id",
+                        "keyType": "HASH"
+                      }
+                    ],
+                    "provisionedThroughput": {
+                      "readCapacityUnits": 5,
+                      "writeCapacityUnits": 5
+                    },
+                    "tableName": {
+                      "Fn::Join": [
+                        "",
+                        [
+                          "SpaceTable-",
+                          {
+                            "Fn::Select": [
+                              4,
+                              {
+                                "Fn::Split": [
+                                  "-",
+                                  {
+                                    "Fn::Select": [
+                                      2,
+                                      {
+                                        "Fn::Split": [
+                                          "/",
+                                          {
+                                            "Ref": "AWS::StackId"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_dynamodb.CfnTable",
+                  "version": "2.146.0"
+                }
+              },
+              "ScalingRole": {
+                "id": "ScalingRole",
+                "path": "DataStack/SpacesTable/ScalingRole",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.Resource",
+                  "version": "2.146.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_dynamodb.Table",
+              "version": "2.146.0"
+            }
+          },
           "CDKMetadata": {
             "id": "CDKMetadata",
             "path": "DataStack/CDKMetadata",
@@ -25,6 +103,24 @@
                 "path": "DataStack/CDKMetadata/Condition",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.CfnCondition",
+                  "version": "2.146.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.3.0"
+            }
+          },
+          "Exports": {
+            "id": "Exports",
+            "path": "DataStack/Exports",
+            "children": {
+              "Output{\"Ref\":\"SpacesTable8A997355\"}": {
+                "id": "Output{\"Ref\":\"SpacesTable8A997355\"}",
+                "path": "DataStack/Exports/Output{\"Ref\":\"SpacesTable8A997355\"}",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnOutput",
                   "version": "2.146.0"
                 }
               }
@@ -157,7 +253,14 @@
                       "s3Bucket": {
                         "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
                       },
-                      "s3Key": "656758387115ecf9616b4dd99d5f15b7e92a97db79fc9b1b03526632c0097fb7.zip"
+                      "s3Key": "cc649949bf388f81218ec22342ba30e656aa188750121a27534d524ba28c0992.zip"
+                    },
+                    "environment": {
+                      "variables": {
+                        "TABLE_NAME": {
+                          "Fn::ImportValue": "DataStack:ExportsOutputRefSpacesTable8A9973559FB4B87D"
+                        }
+                      }
                     },
                     "handler": "hello.main",
                     "role": {
