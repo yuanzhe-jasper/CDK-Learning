@@ -23,7 +23,7 @@
      "Fn::Join": [
       "",
       [
-       "SpaceTable-",
+       "SpaceStack-",
        {
         "Fn::Select": [
          4,

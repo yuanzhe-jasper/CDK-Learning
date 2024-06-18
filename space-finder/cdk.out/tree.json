@@ -38,7 +38,7 @@
                       "Fn::Join": [
                         "",
                         [
-                          "SpaceTable-",
+                          "SpaceStack-",
                           {
                             "Fn::Select": [
                               4,
@@ -253,7 +253,7 @@
                       "s3Bucket": {
                         "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
                       },
-                      "s3Key": "cc649949bf388f81218ec22342ba30e656aa188750121a27534d524ba28c0992.zip"
+                      "s3Key": "8d2a8c8fc11cba634d24cffc2fa70e9da45f1b9e906f234ae2d5956ff80c8b81.zip"
                     },
                     "environment": {
                       "variables": {
@@ -262,7 +262,7 @@
                         }
                       }
                     },
-                    "handler": "hello.main",
+                    "handler": "index.handler",
                     "role": {
                       "Fn::GetAtt": [
                         "HelloLambdaServiceRoleE071F162",
@@ -279,7 +279,7 @@
               }
             },
             "constructInfo": {
-              "fqn": "aws-cdk-lib.aws_lambda.Function",
+              "fqn": "aws-cdk-lib.aws_lambda_nodejs.NodejsFunction",
               "version": "2.146.0"
             }
           },
