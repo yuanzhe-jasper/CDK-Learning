@@ -1,3 +1,5 @@
 
-GET https://bsvwpprs0g.execute-api.us-west-2.amazonaws.com/prod/spaces
+GET https://b2vwz6okn2.execute-api.us-west-2.amazonaws.com/prod/spaces
 ###
+
+POST  https://b2vwz6okn2.execute-api.us-west-2.amazonaws.com/prod/spaces

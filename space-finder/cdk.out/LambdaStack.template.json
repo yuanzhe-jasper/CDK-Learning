@@ -1,6 +1,6 @@
 {
  "Resources": {
-  "HelloLambdaServiceRoleE071F162": {
+  "SpacesLambdaServiceRole3689E892": {
    "Type": "AWS::IAM::Role",
    "Properties": {
     "AssumeRolePolicyDocument": {
@@ -31,17 +31,17 @@
     ]
    },
    "Metadata": {
-    "aws:cdk:path": "LambdaStack/HelloLambda/ServiceRole/Resource"
+    "aws:cdk:path": "LambdaStack/SpacesLambda/ServiceRole/Resource"
    }
   },
-  "HelloLambda3D9C82D6": {
+  "SpacesLambdaA5F923A4": {
    "Type": "AWS::Lambda::Function",
    "Properties": {
     "Code": {
      "S3Bucket": {
       "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
      },
-     "S3Key": "8d2a8c8fc11cba634d24cffc2fa70e9da45f1b9e906f234ae2d5956ff80c8b81.zip"
+     "S3Key": "98db5db9e90d3468d2a261ad0b37e6e762aa1b5d61140a9958183488a5264615.zip"
     },
     "Environment": {
      "Variables": {
@@ -53,18 +53,18 @@
     "Handler": "index.handler",
     "Role": {
      "Fn::GetAtt": [
-      "HelloLambdaServiceRoleE071F162",
+      "SpacesLambdaServiceRole3689E892",
       "Arn"
      ]
     },
     "Runtime": "nodejs18.x"
    },
    "DependsOn": [
-    "HelloLambdaServiceRoleE071F162"
+    "SpacesLambdaServiceRole3689E892"
    ],
    "Metadata": {
-    "aws:cdk:path": "LambdaStack/HelloLambda/Resource",
-    "aws:asset:path": "asset.8d2a8c8fc11cba634d24cffc2fa70e9da45f1b9e906f234ae2d5956ff80c8b81",
+    "aws:cdk:path": "LambdaStack/SpacesLambda/Resource",
+    "aws:asset:path": "asset.98db5db9e90d3468d2a261ad0b37e6e762aa1b5d61140a9958183488a5264615",
     "aws:asset:is-bundled": true,
     "aws:asset:property": "Code"
    }
@@ -291,15 +291,15 @@
   }
  },
  "Outputs": {
-  "ExportsOutputFnGetAttHelloLambda3D9C82D6ArnAF912CE6": {
+  "ExportsOutputFnGetAttSpacesLambdaA5F923A4ArnE59FF2BB": {
    "Value": {
     "Fn::GetAtt": [
-     "HelloLambda3D9C82D6",
+     "SpacesLambdaA5F923A4",
      "Arn"
     ]
    },
    "Export": {
-    "Name": "LambdaStack:ExportsOutputFnGetAttHelloLambda3D9C82D6ArnAF912CE6"
+    "Name": "LambdaStack:ExportsOutputFnGetAttSpacesLambdaA5F923A4ArnE59FF2BB"
    }
   }
  },
